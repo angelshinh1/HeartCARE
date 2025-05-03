@@ -1,4 +1,5 @@
-# HeartCARE
+# 🫀 Heart Disease Prediction Notebook
+
 
 # Frontend
 [frontend documentation](/app/frontend/README.md)
