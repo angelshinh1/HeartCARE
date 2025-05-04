@@ -26,7 +26,7 @@ This documentation covers a machine learning API that predicts the likelihood of
    ```bash
    python -m venv .venv
    mac: `source venv/bin/activate`  
-   windows, use: `venv\Scripts\activate`
+   windows: `venv\Scripts\activate`
    ```
 
 3. Install required packages
