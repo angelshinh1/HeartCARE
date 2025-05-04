@@ -34,7 +34,7 @@ This documentation covers a machine learning API that predicts the likelihood of
    pip install -r requirements.txt
    ```
 
-4. Download the dataset
+4. Download the dataset: done in notebook
    ```bash
    # Option 1: Using kagglehub (requires Kaggle account setup)
    pip install kagglehub
