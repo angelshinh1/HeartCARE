@@ -141,23 +141,66 @@ The server will start at `http://localhost:8000`
     ]
   }
   ```
+- **Example Response**:
+  ```json
+  {
+    "predictions": [
+        {
+            "prediction": 1,
+            "probability": 0.57084966536023,
+            "prediction_label": "Heart Disease"
+        },
+        {
+            "prediction": 1,
+            "probability": 0.9593071323692177,
+            "prediction_label": "Heart Disease"
+        }
+    ],
+    "count": 2
+  }
+  ```
 
 ### 4. Model Information
 - **URL**: `/model-info`
 - **Method**: `GET`
 - **Response**: Details about the model, including feature names and parameters
 - **Example Response**:
-  ```json
+```json
   {
     "model_type": "LogisticRegression",
-    "features": ["age", "sex", "cp", "trestbps", "chol", "fbs", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal"],
+    "features": [
+        "age",
+        "sex",
+        "cp",
+        "trestbps",
+        "chol",
+        "fbs",
+        "restecg",
+        "thalach",
+        "exang",
+        "oldpeak",
+        "slope",
+        "ca",
+        "thal"
+    ],
     "parameters": {
-      "C": 0.1,
-      "penalty": "l2",
-      "solver": "liblinear",
-      "max_iter": 1000
+        "C": 10,
+        "class_weight": null,
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": null,
+        "max_iter": 1000,
+        "multi_class": "deprecated",
+        "n_jobs": null,
+        "penalty": "l2",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
     }
-  }
+ }
   ```
 
 ## Input Schema Description
