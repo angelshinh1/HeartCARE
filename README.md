@@ -1,4 +1,4 @@
-# 🫀 Heart Disease Prediction Notebook
+# 🫀 Heart Disease Prediction App
 
 
 # Frontend
