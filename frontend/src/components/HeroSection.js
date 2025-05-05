@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import * as THREE from 'three';
 
 // HeartPulse component for the hero section
 const HeartPulse = () => {

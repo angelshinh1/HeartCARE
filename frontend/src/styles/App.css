@@ -190,6 +190,16 @@ button {
   color: var(--primary-dark);
 }
 
+.form-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
 .form-container input[type="text"],
 .form-container input[type="number"],
 .form-container input[type="email"] {
