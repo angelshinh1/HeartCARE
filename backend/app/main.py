@@ -90,7 +90,9 @@ def make_prediction(scaled_data) -> PredictionResponse:
     """
     # Make prediction
     prediction = model.predict(scaled_data)[0]
-    prediction_proba = model.predict_proba(scaled_data)[0][1]  # Probability of class 1
+    prediction = 1 - prediction  # Invert prediction for heart disease (1 = disease, 0 = no disease)
+    prediction_proba = model.predict_proba(scaled_data)[0][prediction]  # Probability of class 1
+    prediction_proba = 1 - prediction_proba  # Invert probability for heart disease
 
     # Return prediction and probability
     return PredictionResponse(
@@ -176,7 +178,7 @@ def model_info() -> ModelInfoResponse:
         parameters=model.get_params(),
     )
 
-
+#==========================Uncomment the following lines to run the API on local machine==========================
 # Run the API with uvicorn
 # if __name__ == "__main__":
 #     # Check if the model exists
