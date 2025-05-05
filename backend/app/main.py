@@ -178,16 +178,16 @@ def model_info() -> ModelInfoResponse:
 
 
 # Run the API with uvicorn
-if __name__ == "__main__":
-    # Check if the model exists
-    if not os.path.exists(model_path):
-        print(
-            f"Warning: Model file not found at {model_path}. Run training script first."
-        )
+# if __name__ == "__main__":
+#     # Check if the model exists
+#     if not os.path.exists(model_path):
+#         print(
+#             f"Warning: Model file not found at {model_path}. Run training script first."
+#         )
 
-        # Create models directory if it doesn't exist
-        if not os.path.exists(MODEL_DIR):
-            os.makedirs(MODEL_DIR)
-            print(f"Created models directory: {MODEL_DIR}")
+#         # Create models directory if it doesn't exist
+#         if not os.path.exists(MODEL_DIR):
+#             os.makedirs(MODEL_DIR)
+#             print(f"Created models directory: {MODEL_DIR}")
 
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+#     uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
