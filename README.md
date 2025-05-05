@@ -2,8 +2,8 @@
 
 
 # Frontend
-[frontend documentation](/app/frontend/README.md)
+[frontend documentation](/frontend/README.md)
 # Backend
-[backend documentation](/app/backend/README.md)  
+[backend documentation](/backend/README.md)  
 
 further documentation for both in their respective repositories
