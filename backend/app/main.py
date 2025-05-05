@@ -81,10 +81,6 @@ def process_patient_data(patient: PatientData):
 def make_prediction(scaled_data) -> PredictionResponse:
     """
     Make prediction using the loaded model, handling inverted class meaning.
-
-    In this dataset:
-    - Class 0 represents "Heart Disease"
-    - Class 1 represents "No Heart Disease"
     """
     # Make prediction
     original_prediction = model.predict(scaled_data)[0]
