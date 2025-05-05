@@ -32,7 +32,7 @@ const InputForm = () => {
 
     try {
       // change to the api key in deployment
-      const response = await fetch("http://127.0.0.1:8000/predict", {
+      const response = await fetch("https://heartcare-66nt.onrender.com/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
