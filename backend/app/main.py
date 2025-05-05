@@ -3,6 +3,7 @@ FastAPI Backend for Heart Disease Prediction
 """
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import pickle
 import numpy as np
 import uvicorn
@@ -25,6 +26,15 @@ app = FastAPI(
     description="API for predicting heart disease using LogisticRegression model",
     version="1.0.0",
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Load the trained model and preprocessing objects
 MODEL_DIR = "models"
