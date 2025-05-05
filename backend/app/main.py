@@ -80,25 +80,28 @@ def process_patient_data(patient: PatientData):
 
 def make_prediction(scaled_data) -> PredictionResponse:
     """
-    Make prediction using the loaded model
+    Make prediction using the loaded model, handling inverted class meaning.
 
-    Args:
-        scaled_data: Scaled input data
-
-    Returns:
-        PredictionResponse object
+    In this dataset:
+    - Class 0 represents "Heart Disease"
+    - Class 1 represents "No Heart Disease"
     """
     # Make prediction
-    prediction = model.predict(scaled_data)[0]
-    prediction = 1 - prediction  # Invert prediction for heart disease (1 = disease, 0 = no disease)
-    prediction_proba = model.predict_proba(scaled_data)[0][prediction]  # Probability of class 1
-    prediction_proba = 1 - prediction_proba  # Invert probability for heart disease
+    original_prediction = model.predict(scaled_data)[0]
 
-    # Return prediction and probability
+    # Invert prediction (0 -> 1, 1 -> 0) to match the API's expectations
+    inverted_prediction = 1 - original_prediction
+
+    # Get probability for the heart disease class (original class 0)
+    heart_disease_proba = model.predict_proba(scaled_data)[0][0]
+
+    # Return inverted prediction and correct probability
     return PredictionResponse(
-        prediction=int(prediction),
-        probability=float(prediction_proba),
-        prediction_label="Heart Disease" if prediction == 1 else "No Heart Disease",
+        prediction=int(inverted_prediction),
+        probability=float(heart_disease_proba),
+        prediction_label=(
+            "Heart Disease" if inverted_prediction == 1 else "No Heart Disease"
+        ),
     )
 
 
@@ -178,7 +181,7 @@ def model_info() -> ModelInfoResponse:
         parameters=model.get_params(),
     )
 
-#==========================Uncomment the following lines to run the API on local machine==========================
+# ==========================Uncomment the following lines to run the API on local machine==========================
 # Run the API with uvicorn
 # if __name__ == "__main__":
 #     # Check if the model exists
