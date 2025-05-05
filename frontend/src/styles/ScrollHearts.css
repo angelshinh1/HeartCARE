@@ -1,0 +1,6 @@
+.hearts-canvas {
+    width: 100vw;
+    height: 400px;
+    background: radial-gradient(circle, #ffd6dc 0%, #ffe4e1 100%); /* Soft pink gradient */
+  }
+  
