@@ -8,12 +8,9 @@ import ScrollHearts from './components/ScrollHearts';
 function App() {
   return (
     <div className="App">
-      <div className="hero">
-        <HeroSection />
-      </div>
-      <div className="form-container">
-        <InputForm />
-      </div>
+      <HeroSection />
+  
+      <InputForm />
       
       <ScrollHearts />
 
